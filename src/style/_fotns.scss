@@ -1,0 +1,42 @@
+@font-face {
+    font-family:'TTSevers-Bold';
+    font-weight: 700;
+    font-style: normal;
+    src: local('TTSevers-Bold'),
+        url('../fonts/TTSevers-Bold.woff2') format('woff2'),
+        url('../fonts/TTSevers-Bold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family:'TTSevers-DemiBold';
+    font-weight: 600;
+    font-style: normal;
+    src: local('TTSevers-DemiBold'),
+        url('../fonts/TTSevers-DemiBold.woff2') format('woff2'),
+        url('../fonts/TTSevers-DemiBold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family:'TTSevers-Medium';
+    font-weight: 500;
+    font-style: normal;
+    src: local('TTSevers-Medium'),
+        url('../fonts/TTSevers-Medium.woff2') format('woff2'),
+        url('../fonts/TTSevers-Medium.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family:'TTSevers-Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: local('TTSevers-Regular'),
+        url('../fonts/TTSevers-Regular.woff2') format('woff2'),
+        url('../fonts/TTSevers-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+
+

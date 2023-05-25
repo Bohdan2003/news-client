@@ -1,0 +1,15 @@
+@import "../../style/global";
+@import "../../style/vars";
+
+.admin-page{
+    padding: 40px 0;
+    &__title{
+        @extend %title;
+        margin-bottom: 40px;
+    }
+    &__inner{
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        margin: 0 auto;
+    }
+}

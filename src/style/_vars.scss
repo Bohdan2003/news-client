@@ -1,0 +1,105 @@
+@import "./fotns";
+
+$black: #2D2D2D;
+$blue: #182840;
+$primaryBlue: #121B30;
+$gray: #B0B0B0;
+$grayLight: #E8E8E8;
+$orange: #FF7534;
+
+%severs-400{
+    font-family: "TTSevers-Regular";
+    font-weight: 400;
+}
+
+%severs-500{
+    font-family: "TTSevers-Medium";
+    font-weight: 500;
+}
+
+%severs-600{
+    font-family: "TTSevers-DemiBold";
+    font-weight: 600;
+}
+
+%severs-700{
+    font-family: "TTSevers-Bold";
+    font-weight: 700;
+}
+
+%title{
+    line-height: 130%;
+    @extend %severs-700; 
+    font-size: 32px;
+    color:$black;
+}
+
+%link{
+    @extend %severs-600; 
+    color: $orange;
+    font-size: 14px;
+}
+
+%date{
+    font-size: 12px;
+    @extend %severs-400;
+    color: #707070;
+}
+
+%link-more{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 5px 50px 5px 0;
+    display: inline-block;
+    position: relative;
+    color: $blue;
+    &::after{
+        content: '';
+        position: absolute;
+        background-image: url('../assets/link-arrow.svg');
+        width: 32px;
+        height: 32px;
+        top: 0;
+        right: 0;       
+    }
+}
+
+%btn-load-more-news{
+    width: 100%;
+    padding: 9px 0 6px;
+    border: 1px solid #979EA9;
+    border-radius: 4px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+    &::before{
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-image: url('../assets/load.svg');
+        transform: translate(-150%, 5%);
+    }
+}
+
+%animation-fade{  
+    animation: fade 1s linear infinite alternate;
+}
+
+@media(max-width:800px){
+    %title{
+        font-size: 30px;
+    }
+}
+
+
+
+@keyframes fade{
+    from {
+        opacity: .2;
+    } 
+    to {
+        opacity: 1;
+    }
+}

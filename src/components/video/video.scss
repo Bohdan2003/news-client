@@ -1,0 +1,209 @@
+@import "../../style/vars";
+
+.video{
+    background: linear-gradient(180deg, rgba(21, 35, 56, 0.5) 0%, rgba(24, 40, 64, 0.95) 100%), url('../../assets/slider/2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    &__inner{
+        padding: 60px 0 110px;
+    }
+    &__box{
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+    &__title{
+        @extend %title;
+        color:#fff;
+    }
+    &__link{
+        @extend %link;
+    }
+    &__content{
+        width: 100%;
+    }
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, auto);
+        grid-gap: 30px;
+    }
+    &__item{
+        overflow: hidden;
+        transition: all .5s cubic-bezier(.36,-0.64,.34,1.76);    
+        color: #fff;
+        display: none;
+    }
+    &__item:nth-child(-n + 5){
+        display: block;
+    }
+    &__item:nth-child(1) {
+        grid-row: span 2;
+        grid-column: span 2;  
+        .video__item-linkimg{
+            margin-bottom: 30px;
+            &::before{
+                bottom: 20px;
+                left: 15px;
+                width: 40px;
+                height: 40px;
+                background-image: url('../../assets/video-icon-big.svg');
+            }
+            img{
+                height: 360px;
+            }
+        }    
+        .video__item-descr{
+            height: 85px;
+            font-size: 32px;
+        } 
+        .video__date{
+            margin-bottom: 20px;
+            font-size: 12px;
+        }      
+    }
+    &__item-linkimg{
+        display: block;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 15px;
+        &::before{
+            content: '';
+            position: absolute;
+            z-index: 1;
+            transition: all 1s;
+            opacity: 0.5;
+            bottom: 8px;
+            left: 8px;
+            width: 20px;
+            height: 20px;
+            background-image: url('../../assets/video-icon-smoll.svg');
+        }
+        &:hover{
+            &::before{
+                opacity: 1;
+            }   
+        }
+        img{          
+            height: 170px;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    &__date{
+        display: block;
+        margin-bottom: 10px;
+        font-size: 12px;
+        @extend %severs-400; 
+        color:inherit; 
+    } 
+    &__item-descr{
+        line-height: 140%;
+        color: inherit; 
+        height: 45px;
+        display: -webkit-box; 
+        -webkit-box-orient: vertical; 
+        -webkit-line-clamp: 2; 
+        overflow: hidden;
+    }   
+    &__btn{
+        display: none;
+        width: 100%;
+        padding: 9px 0 6px;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        background-color: transparent;
+        cursor: pointer;
+    }   
+}
+.carousel{
+    &__button.is-next,
+    &__button.is-prev,
+    &__track{
+        display: none;
+    }
+} 
+
+@media(max-width:1200px){
+    .video{
+        &__inner{
+            padding: 60px 0;
+        }
+        &__item:nth-child(1) .video__item-linkimg img{
+            height: 28vw;
+        }
+        &__item-linkimg img{
+            height: 12vw;
+        }
+    }
+}
+
+@media(max-width:1000px){
+    .video{
+        background-image: none;
+        background-color: $blue;
+        &__box{
+            margin-bottom: 15px;
+        }
+        &__list{
+            height: auto;
+            grid-template-columns: repeat(2,1fr);
+        }
+        &__item:nth-child(1) {
+            display: none;  
+            grid-row: span 1;
+            grid-column: span 1;
+            .video__item-linkimg{
+                margin-bottom: 15px;
+                &::before{
+                    bottom: 8px;
+                    left: 8px;
+                    width: 20px;
+                    height: 20px;
+                    background-image: url('../../assets/video-icon-smoll.svg');
+                }
+            } 
+            .video__date{
+                margin-bottom: 10px;
+            }   
+            .video__item-descr{
+                font-size: 16px;
+                height: 45px;
+            }  
+        }
+        &__item-linkimg img{
+            height: 25vw;
+        }
+    }
+}
+@media(max-width:550px){
+    .video{
+        &__item,
+        &__btn{
+            display: block;
+        }
+        &__title{
+            font-size: 30px;
+        }
+        &__list{
+            margin-bottom: 30px;
+            height: auto;
+            grid-template-columns: 1fr;
+            grid-row-gap: 30px;
+        }
+        &__item:nth-child(1){
+            display: block;
+        }
+        &__item:nth-child(1) .video__item-linkimg ,
+        &__item-linkimg {
+            img{
+                height: 50vw; 
+            }
+        }
+    }
+}
+  

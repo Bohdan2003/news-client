@@ -1,0 +1,72 @@
+@import 'vars';
+
+html,
+body {
+    height: 100%;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+body {
+    line-height: 140%;
+    font-size: 16px;
+    @extend %severs-500;
+    color: $blue;
+    background-color: $grayLight;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+body::-webkit-scrollbar {
+    padding-left: 15px;
+    border-radius: 20px; 
+    width: 12px;              
+}
+  
+body::-webkit-scrollbar {
+    background: $grayLight;       
+}
+ 
+body::-webkit-scrollbar-thumb {
+    background-color: $gray;    
+    border-radius: 20px;      
+    border: 1px solid $grayLight;  
+}
+
+.container {
+    box-sizing: border-box;
+    max-width: 1360px;
+    padding: 0 25px;
+    margin: 0 auto;
+}
+
+.isLoading{
+    cursor: auto;
+    font-size: 0;
+    pointer-events: none;
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        background-image: url('../assets/loading.svg');
+    }
+    &::before{
+        display: none;
+    }
+}
+
+button:disabled{
+    cursor: auto;
+    opacity: .5;
+}
+
+
+

@@ -1,0 +1,53 @@
+@import "../../style/vars";
+
+.tile{
+    &__imglink{
+        display: block;    
+        margin-bottom: 15px;
+        img{
+            height: 170px;
+            display: block;
+            object-fit: cover;
+        }
+    }
+    &__date{
+        @extend %severs-400;
+        color: #707070;
+        font-size: 12px;
+        display: block;
+        margin-bottom: 10px;
+    }
+    &__descrlink{
+        @extend %severs-600;
+        color: $blue;
+        display: -webkit-box;
+        -webkit-box-orient: vertical; 
+        -webkit-line-clamp: 3; 
+        overflow: hidden;
+        max-height: 65px;
+    }
+}
+
+@media(max-width:1200px){
+    .tile{
+        &__imglink img{
+            height: 18vw;
+        }
+    }
+}
+
+@media(max-width:800px){
+    .tile{
+        &__imglink img{
+            height: 26vw;
+        }
+    }
+}
+
+@media(max-width:550px){
+    .tile{
+        &__imglink img{
+            height: 50vw;
+        }
+    }
+}

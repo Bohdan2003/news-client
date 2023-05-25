@@ -1,0 +1,76 @@
+@import "../../style/vars";
+
+.skeleton-video{
+    &__img,
+    &__date,
+    &__descr{
+        @extend %animation-fade;
+        background-color: $grayLight;         
+    }
+    &__date,
+    &__descr{
+        border-radius: 15px;
+    }
+    &__item:first-child{
+        grid-row: span 2;
+        grid-column: span 2;
+        .skeleton-video__img{
+            height: 28vw;
+        }
+        .skeleton-video__descr{
+            height: 85px;
+        }
+    }
+    &__img{
+        height: 13vw;
+        margin-bottom: 15px;
+    }
+    &__date{
+        width: 100px;
+        height: 22px;
+        margin-bottom: 10px;
+    }
+    &__descr{
+        height: 45px;
+    }
+}
+
+@media(min-width:1200px){
+    .skeleton-video{
+        &__item:nth-child(1) .skeleton-video__img{
+            max-height: 360px;
+        }
+        &__img{
+            max-height: 170px;
+        }
+    }
+}
+
+@media(max-width:1000px){
+    .skeleton-video{
+        &__item:first-child{
+            display: none;
+        }
+        &__img,
+        &__item:first-child .skeleton-video__img{
+            height: 25vw;
+        }
+    }   
+}
+
+@media(max-width:550px){
+    .skeleton-video{
+        &__img,
+        &__item:first-child .skeleton-video__img{
+            height: 50vw; 
+        }
+        &__item:first-child{
+            grid-row: span 1;
+            grid-column: span 1;
+            display: block;
+            .skeleton-video__descr{
+                height: 45px;
+            }
+        }
+    }
+}

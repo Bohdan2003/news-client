@@ -1,0 +1,49 @@
+@import "../../style/vars";
+
+.skeleton-item{
+    &__date,
+    &__text{
+        @extend %animation-fade;
+        background-color: #fff; 
+        border-radius: 15px;
+    }
+    &__img{
+        @extend %animation-fade;
+        background-color: #fff;        
+        width: 100%;
+        height: 170px;
+        margin-bottom: 15px;
+    }
+    &__date{
+        width: 100px;        
+        height: 20px;
+        margin-bottom: 10px;
+    }
+    &__text{
+        width: 100%;
+        height: 70px;
+    }
+}
+
+@media(max-width:1200px){
+    .skeleton-item{
+        &__img{
+            height: 18vw;
+        }
+    }
+}
+
+@media(max-width:800px){
+    .skeleton-item{
+        &__img{
+            height: 26vw
+        }
+    }
+}
+@media(max-width:550px){
+    .skeleton-item{
+        &__img{
+            height: 50vw
+        }
+    }
+}

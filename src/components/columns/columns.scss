@@ -1,0 +1,132 @@
+@import "../../style/vars";
+
+.columns{
+    min-width: 280px;
+    margin-right: 30px;
+    padding: 15px 15px 30px;
+    background: #fff;
+    border-radius: 12px;
+    max-width: 305px;
+    width: 100%;   
+    &__box{
+        display: flex;
+        margin-bottom: 30px;
+        justify-content: space-between;
+        align-items: center;
+        @extend %severs-600;
+    }
+    &__link{
+        @extend %link;
+    }
+    &__title{
+        font-size: 24px;       
+        color:$black;       
+    }
+    &__items{
+        margin-bottom: 60px;
+    }
+    &__item{
+        position: relative;
+        display: block;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        color:inherit;
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #EBEBEB;
+            height: 1px;
+        }
+    }
+    &__item:last-child{
+        margin-bottom: 0;
+        padding-bottom: 0;
+        &::after{
+            display: none;
+        }
+    }
+    &__item-box{
+        display: flex;
+        margin-bottom: 15px;
+    }      
+    &__imglink{
+        display: block;
+        margin-right: 15px;
+    }
+    &__name{
+        font-style:normal;
+        padding-top: 15px;
+        color:$black;
+    }
+    &__vocation{
+        @extend %severs-400;
+        text-transform: uppercase;
+        color:#707070;
+        font-size: 12px;
+    }
+    &__descr{       
+        color: inherit;
+        display: -webkit-box;
+        -webkit-box-orient: vertical; 
+        -webkit-line-clamp: 2; 
+        max-height: 45px;     
+        overflow: hidden;  
+        margin-bottom: 10px;
+    }
+    &__date{
+        color: #707070;
+        font-size: 12px;
+        @extend %severs-400;
+    }
+    &__link-btn{
+        color: $black;
+        text-align: center;
+        width: 100%;
+        padding: 9px 0 6px;
+        border: 1px solid #979EA9;
+        border-radius: 4px;
+        background-color: transparent;
+        position: relative;
+        cursor: pointer;       
+    }
+    .swiper{
+        overflow: visible;
+    }
+}
+
+@media(max-width:1200px){
+    .columns{
+        max-width: none;
+        padding: 0 25px 15px;
+        background: transparent;
+        &__items{
+            margin-bottom: 0;
+        }
+        &__item{
+            position: relative;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            height: auto;
+            &:last-child{
+                margin-bottom: 25px;
+            }
+            &::after{
+                display: none;
+            }
+        }
+        &__descr{
+            margin-bottom: 45px;
+        }
+        &__date{
+            position: absolute;
+            bottom: 15px;
+        }
+        &__link-btn{
+            display: none;
+        }
+    }
+}

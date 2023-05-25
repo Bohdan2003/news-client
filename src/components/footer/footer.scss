@@ -1,0 +1,213 @@
+@import "../../style/vars";
+
+.footer-top{
+    border-top: 1px solid #DBDBDB;
+    border-bottom: 1px solid #DBDBDB;
+    padding: 60px 0;
+    &__items{
+        margin-bottom: 60px;    
+        display: flex;  
+        justify-content: space-between;
+    }
+    &__item-box{
+        padding-right: 20px;
+    }
+    &__link{
+        @extend %severs-600;
+        margin-bottom: 25px;
+        display: block;
+        color: $black;
+    }
+    &__title{
+        @extend %severs-600;
+        color: $black;
+        margin-bottom: 8px;
+    }
+    &__button{
+        @extend %severs-600;
+        color: $black;
+        display: none;
+        background-color: transparent;
+        border: none;
+        padding: 15px;
+        width: 100%;
+        text-align: left;
+        position: relative;
+        cursor: pointer;
+        &::after{
+            content: '';
+            transition: all .5s;
+            position: absolute;
+            width: 16px;
+            height: 8px;
+            background-image: url('../../assets/arrow-footer.svg');
+            right: 15px;
+            top: 22px;
+        }
+    }
+    &__button--active::after{
+        transform: rotateX(180deg);
+    }
+    &__list{
+        max-width: 150px;
+        margin-bottom: 30px;
+    }
+    &__list-item{
+        margin-bottom: 8px;
+    }
+    &__list-item:last-child{
+        margin-bottom: 0;
+    }
+    &__list-link{
+        color: #515151;
+        font-size: 14px;
+        @extend %severs-400;
+    }
+    &__menu-link{
+        @extend %severs-600;
+        text-transform: uppercase;
+        color: $black;
+        margin-bottom: 25px;
+    }
+    &__menu-link:last-child{
+        margin-bottom: 0;
+    }
+    &__social-title{
+        @extend %severs-600;
+        font-size: 24px;
+        line-height: 140%;
+        color:$black;
+        margin-bottom: 30px;
+    }
+    &__social-items{
+        display: flex;
+    }
+    &__social-itemlink{
+        display: flex;
+        align-items: center;
+    }
+    &__social-itemlink + &__social-itemlink{
+        margin-left: 40px;
+    }
+    &__social-text{
+        @extend %severs-400;
+        color: #434343;
+        font-size: 14px;
+        margin-left: 12px;
+    }
+}
+
+.footer-bottom{
+    padding: 25px 0 30px;
+    &__text{
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 14px;
+        color: #515151;
+        @extend %severs-400;
+        margin-bottom: 25px;
+    }
+    &__terms{
+        justify-content: center;
+        display: flex;
+    }
+    &__link{
+        font-size: 14px;
+        color: #515151;
+        @extend %severs-400;
+    }
+    &__link+&__link{
+        margin-left: 30px;
+    }
+}
+
+@media(max-width:1000px){
+    .footer-top{
+        padding: 40px 0;
+        &__items{
+            flex-wrap: wrap;
+        }
+        &__item{
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            width: 33.33%;
+        }
+        &__item.footer-top__menu{
+            display: block;
+        }
+        &__social-items{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        &__social-itemlink{   
+            margin-bottom: 25px;        
+            width: 33.33%;
+        }
+        &__social-itemlink + &__social-itemlink{
+            margin-left: 0;
+        }
+    }
+}
+
+@media(max-width:700px){
+    .footer-bottom{
+        &__terms{
+            display: block;
+            text-align: center;  
+        }
+        &__link{
+            margin-bottom: 25px;
+        }
+        &__link + &__link{
+            margin-left: 0;
+        }
+    }
+    
+}
+
+@media(max-width:600px){
+    .footer-top{
+        &__item{
+            width: 100%;
+            display: block;
+        }
+        &__list{
+            max-width: none;
+            margin-bottom: 15px;
+        }
+        &__list-item{
+            padding-left: 30px;          
+        } 
+        &__list-item:last-child{
+            margin-bottom: 0;
+        }     
+        &__title{
+            padding-left: 15px;
+            display: none;
+            margin: 0;
+        }
+        &__link{
+            padding: 15px;
+            margin-bottom: 0;
+        }
+        &__button{
+            display: block;
+        }
+        &__item-box,
+        &__link{
+            border-bottom: 1px solid #DEDFE0;
+            border-radius: 2px;
+        }
+        &__menu{
+            padding-top: 25px;
+        }
+        &__menu-link{
+            padding-left: 0;
+            text-align: center;
+            border: none;
+        }
+        &__social-itemlink{    
+            width: 50%;
+        }
+    }
+}

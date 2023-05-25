@@ -1,0 +1,75 @@
+.admin-form{
+    align-self: start;
+    width: 350px;
+    border-radius: 12px;
+    padding: 15px 15px;
+    background-color: #fff;
+    &__box{
+        margin-bottom: 30px;
+    }
+    &__img{   
+        cursor: pointer;
+        margin-bottom: 10px; 
+        position: relative;   
+        &::after{
+            background-color: rgba(252, 252, 252, 0.8);
+            transition: all .5s;   
+            opacity: 0;
+            font-size: 24px;
+            content: "Завантажити";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: grid;
+            place-items: center;
+        }
+        &:hover::after{
+            opacity: 1;
+        }
+        img{
+            border: 1px solid #979EA9;
+            border-radius: 4px;
+            height: 200px;
+            width: 100%;
+            object-fit: cover;          
+        }
+    }
+    &__btn{
+        cursor: pointer;
+        width: 100%;
+        padding: 9px 38px 6px 32px;
+        background-color: transparent;
+        border: 1px solid #979EA9;
+        border-radius: 4px;
+    }
+    &__label{
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+    }
+    &__input{
+        resize: none;
+        display: block;
+        width: 100%;
+        background: #F7F7F7;
+        border:none;
+        height: 120px;
+        padding: 5px 15px;
+        border-radius: 4px;
+    }
+    &__btnsubmit{
+        cursor: pointer;
+        width: 100%;
+        padding: 9px 39px 6px 33px;
+        border: none;
+        background-color: #979EA9;
+        color: #fff;
+        border-radius: 4px;
+    }
+    .error{
+        color: red;
+        margin-top: 10px;
+    }
+}

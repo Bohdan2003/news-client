@@ -1,0 +1,116 @@
+@import "../../style/vars";
+
+.skeleton-slider{
+    display: grid;
+    align-items: flex-end;
+    grid-template-columns: 100%;
+    height: 650px;
+    background-color: #fff;
+    padding-bottom: 60px;
+    .container{
+        width: 100%;
+    }
+    &__title,
+    &__subtitle,
+    &__item{
+        @extend %animation-fade;
+        background-color: $grayLight;
+        border-radius: 15px;
+    }
+    &__title{       
+        height: 160px;
+        width: 750px;
+        margin-bottom: 45px;       
+    }
+    &__subtitle{
+        height: 40px;
+        width: 163px;
+        margin-bottom: 45px;
+    }
+    &__items{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);      
+        grid-column-gap: 30px;
+        height: 80px;
+    }
+}
+
+@media(max-width: 1200px){
+    .skeleton-slider{
+        height: 550px;
+        &__title{
+            height: 140px;
+            width: 700px;
+            margin-bottom: 80px;
+        }
+        &__subtitle{
+            display: none;
+        }
+        &__items{
+            grid-template-columns: repeat(3, 1fr); 
+            grid-column-gap: 30px;
+        }
+        &__item:last-child{
+            display: none;
+        }
+    }
+}
+
+@media(max-width: 1000px){
+    .skeleton-slider{
+        &__title{
+            height: 120px;
+            width: 620px;
+        }
+    }
+}
+
+@media(max-width: 900px){
+    .skeleton-slider{
+        &__title{
+            margin-bottom: 50px;
+        }
+        &__items{
+            grid-template-columns: repeat(2, 1fr); 
+            grid-column-gap: 15px;
+        }
+        &__item:nth-child(3){
+            display: none;
+        }
+    }
+}
+
+@media(max-width: 800px){
+    .skeleton-slider{
+        background-color: $grayLight;
+        &__title,
+        &__subtitle,
+        &__item{
+            background-color: #fff;
+        }
+        &__title{
+            height: 100px;
+            width: 450px;
+        }
+    }
+}
+
+@media(max-width: 550px){
+    .skeleton-slider{
+        &__title{
+            height: 100px;
+            width: 90%;
+        }
+    }
+}
+
+@media(max-width: 500px){
+    .skeleton-slider{
+        &__items{
+            grid-template-columns: repeat(1, 1fr); 
+        }
+        &__item:nth-child(2){
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+@import "../../style/vars";
+
+.all-news{
+    margin-right: 30px;
+    padding: 15px 15px 30px;
+    background: #fff;
+    border-radius: 12px;
+    max-width: 305px;
+    width: 100%;   
+    &__box{
+        display: flex;
+        margin-bottom: 30px;
+        justify-content: space-between;
+        align-items: center;
+        @extend %severs-600;
+    }
+    &__state{
+        font-size: 14px;
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $blue;
+            height: 1px;
+        }
+    }
+    &__title{
+        font-size: 24px;       
+        color:$black;       
+    }
+    &__filters{
+        display: flex;
+        margin-bottom: 30px;
+    }
+    &__filters-btn{
+        transition: all 1s;
+        display: block;
+        border: none;
+        background-color: #fff;  
+        color: #919191;
+        border-radius: 5px; 
+        padding: 4px 10px 2px;
+        cursor: pointer; 
+    }
+    &__filters-btn + &__filters-btn{
+        margin-left: 10px;
+    }
+    &__filters-btn--active{
+        color: #FF7534;
+        background-color: #FFEAE0;
+    } 
+    .list{
+        margin-bottom: 30px;
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #fff;
+        }
+        &__items{
+            &::-webkit-scrollbar {
+                padding-left: 15px;
+                border-radius: 20px; 
+                width: 4px;              
+            }
+              
+            &::-webkit-scrollbar {
+                background: $grayLight;      
+            }
+             
+            &::-webkit-scrollbar-thumb {
+                background-color: $gray;   
+                border-radius: 3px;      
+                border: 1px solid $grayLight;
+            }
+        }
+        &__items--short{
+            overflow: auto;
+            padding-right: 15px;
+            margin-bottom: 20px;
+        }
+        &__item:last-child .list__item-inner{
+            padding-bottom: 5px;
+            margin-bottom: 0;
+        } 
+    }
+    &__btn{
+        @extend %btn-load-more-news;
+    }
+}
+
+@media(max-width:1000px){
+    .all-news{
+        max-width: 265px;
+    }
+}
+
+@media(max-width:800px){
+    .all-news{
+        padding: 40px 25px;
+        margin-right: 0;
+        margin-bottom: 40px;
+        max-width: 100%;
+        border-radius: 0;
+        &__title{
+            font-size: 20px;
+        }
+        .list__items{
+            margin-bottom: 30px;
+        }
+    }
+}

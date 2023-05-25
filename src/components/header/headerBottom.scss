@@ -1,0 +1,68 @@
+@import "../../style/vars";
+
+.header-bottom{
+    @extend %severs-600;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 17px;
+    min-width: 650px;
+    &__inner{   
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }   
+    &__list{
+        user-select: none;
+        display: flex;
+    }
+    &__item + &__item{
+        margin-left: 40px;
+    }    
+    &__link,
+    &__live{
+        color: $blue;
+        text-decoration: none;
+    }
+    &__link--active{
+        padding-left: 30px;
+        color: $orange;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -5px;
+            width: 20px;
+            height: 20px;
+            background-image: url('../../assets/fire.svg');
+        }
+    }
+    &__live{
+        padding-left: 24px;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 12px;
+            height: 12px;
+            background-image: url('../../assets/dot.svg');
+        }
+    }
+}
+
+@media(max-width:800px){
+    .header-bottom{
+        &__inner{
+            height: 45px;
+        }       
+        &__item + &__item{
+            margin-left: 25px;
+        }
+    }   
+}
+
+
+

@@ -1,0 +1,86 @@
+@import "../../style/vars";
+
+.skeleton-regions{
+    &__column{
+        padding: 15px 15px 30px;
+        background-color: #fff;
+        border-radius: 12px;
+    }
+    &__title,
+    &__date,
+    &__text,
+    &__btn{
+        @extend %animation-fade;
+        background-color: $grayLight; 
+        border-radius: 15px;
+    }
+    &__title{
+        height: 30px;
+        width: 35%;
+        margin-bottom: 25px;
+    }
+    &__date{
+        height: 20px;
+        width: 40%;
+        margin-bottom: 20px;
+    }
+    &__text{
+        height: 80px;
+        margin-bottom: 30px;
+        &:last-child{
+            margin-bottom: 60px;
+        }
+    }
+    &__btn{
+        height: 33px;
+        width: 150px;
+    }
+}
+
+@media(max-width:1200px){
+    .skeleton-regions{
+        &__column{
+            margin-bottom: 30px ;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        &__text{
+            height: 40px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media(max-width:800px){
+    .skeleton-regions{
+        &__title{
+            display: none;
+        }
+        &__date{
+            width: 20%;
+        }
+        &__box{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 30px;
+            grid-row-gap: 40px;
+        }
+        &__text{
+            height: 80px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media(max-width:550px){
+    .skeleton-regions{
+        &__box{
+            display: block;
+        }
+        &__text{
+            height: 60px;
+            margin-bottom: 30px;
+        }
+    }
+}

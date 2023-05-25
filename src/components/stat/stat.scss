@@ -1,0 +1,107 @@
+@import "../../style/vars";
+
+
+.stat{
+    background-color: $primaryBlue;
+    color:#fff;
+    font-size: 14px;
+    line-height: 24px;   
+    &__inner{
+        padding-top: 2px;
+        display: flex;
+        align-items: center;
+        height: 36px;
+    }
+    &__title{
+        white-space: nowrap;
+        padding-right: 40px;    
+    }
+    &__box{
+        overflow: hidden;
+        position: relative;
+        &:before {
+            z-index: 1;
+            position: absolute;
+            content: ' ';
+            top: 0;
+            width: 50px;
+            height: 100%;
+            background-image:  linear-gradient(90deg, #121B30 30%, rgba(18, 27, 48, 0) 100%);
+        }
+        &:after {
+            z-index: 1;
+            position: absolute;
+            content: ' ';
+            right: 0;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            background-image:  linear-gradient(270deg, #121B30 30%, rgba(18, 27, 48, 0) 100%);
+        }      
+    }
+    &__box div{
+        min-width: 2400px;  
+        width: 200%;
+        display: flex;
+        animation: scroll 30s infinite 0s linear;
+    }
+    &__list{  
+        // min-width: 1158px;  
+        width: 100%; 
+        display: flex;  
+        &:first-child{
+            // padding-right: 20px;
+        }
+        &:last-child{
+            // padding-left: 20px;
+        }
+    }
+
+    &__item{
+        display: flex;
+        white-space:nowrap;
+    }
+    &__number{
+        color: $orange;
+        margin-left: 5px;
+    }
+    &__item+&__item{
+        margin-left: 40px;
+    }
+    &__img{
+        transform: translate(0,1px);
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
+@media(max-width:800px){
+    .stat{
+        &__title{
+            font-size: 12px;
+            padding-right: 0;
+        }
+        &__box{
+            &:before,
+            &:after {
+                width: 10px;
+            }    
+        }
+        &__box div{
+            min-width: 2200px;               
+        }
+        &__item{
+            font-size: 12px;
+        }
+    }
+}

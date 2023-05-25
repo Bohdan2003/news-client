@@ -1,0 +1,58 @@
+@import "../../style/global";
+@import "../../style/vars";
+
+.title-hidden{
+    display: none;
+}
+
+.news,
+.news-bottom{
+    overflow: hidden;
+    &__inner{
+        margin: 66px 0 30px;
+        display: flex;
+        align-items: start;
+    }
+    &__box{
+        width: 100%;
+    }
+}
+
+.news{
+    overflow: hidden;
+    &__inner{
+        margin: 60px 0 30px;
+    }
+}
+.news-bottom{
+    &__inner{
+        margin: 30px 0 60px;
+    }
+}
+
+@media(max-width:1200px){
+    .news-bottom{
+        .container{
+            padding: 0;
+        }
+        &__inner{
+            display: block;
+        }
+    }
+}
+
+@media(max-width:800px){
+    .news{
+        .container{
+            padding: 0;
+        }
+        &__inner{
+            margin: 0 0 40px;
+            display: block;
+            align-items: start;
+        }
+        &__box{
+            width: 100%;
+        }
+    } 
+}
