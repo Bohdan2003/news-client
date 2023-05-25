@@ -1,3 +1,3 @@
-export const BACKEND_URL = 'https://cryptic-refuge-26904.herokuapp.com/'
-export const IMAGE_URL = 'https://cryptic-refuge-26904.herokuapp.com/images/'
-export const AVATAR_URL = 'https://cryptic-refuge-26904.herokuapp.com/avatars/'
+export const BACKEND_URL = 'https://pacific-savannah-21985.herokuapp.com'
+export const IMAGE_URL = `${BACKEND_URL}/images/`
+export const AVATAR_URL = `${BACKEND_URL}/avatars/`
