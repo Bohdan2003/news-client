@@ -17,7 +17,8 @@
     &__link{
         @extend %link;
     }
-    &__tabs{
+    &__filter{
+        display: none;
         margin-bottom: 30px;
     }
     &__filter-btn{
@@ -113,6 +114,12 @@
         margin: 0 0 25px;   
         padding: 60px 25px;
         border-radius: 0; 
+        &__filter{
+            display: block;
+        }
+        .hidden{
+            display: none;
+        }
         &__content-box{
             margin-right: 0;
             .section__link-more{
