@@ -26,18 +26,20 @@
         width: 100%;
         position: absolute;      
     }
-    &__textlink{
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        font-size: 40px;
-        line-height: 120%;
-        color: #fff;
-        max-width: 752px;     
-        max-height: 150px;
+    &__text{       
         position: relative;
         z-index: 1;
+    }
+    &__textlink{      
+        font-size: 40px;
+        line-height: 120%;
+        color: #fff;  
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;  
+        overflow: hidden; 
+        max-width: 752px;     
+        max-height: 150px;
     }   
     &__img{
         object-fit: cover;
@@ -100,7 +102,7 @@
         &__content{
             top: 220px;
         }
-        &__text{
+        &__textlink{
             font-size: 36px;
             max-width: 700px;
         }
@@ -115,7 +117,7 @@
 
 @media(max-width: 1000px){
     .slider{
-        &__text{
+        &__textlink{
             font-size: 30px;
             max-width: 620px;
             max-height: 120px;
@@ -128,7 +130,7 @@
         &__content{
             max-height: 117px;
         }
-        &__text{
+        &__textlink{
             max-height: 90px;
             font-size: 24px;
             max-width: 450px;
@@ -139,7 +141,7 @@
 @media(max-width: 500px){
     .slider{
         &__content{
-            top: 270px;
+            top: 300px;
         }
     }
 }

@@ -51,7 +51,7 @@ export const AdminForm = () => {
                     formData.append('file', values.file);
                     formData.append('descr', values.descr);
                     createSlide(formData).unwrap();
-                    resetForm()
+                    resetForm();
                 }}
             >
                { ({values, setFieldValue}) => (
@@ -67,8 +67,9 @@ export const AdminForm = () => {
                                 hidden
                                 type="file" 
                                 accept={SUPPORTED_FORMATS}
-                                onChange={(e) => {
-                                    if(e.target.files[0]) setFieldValue("file", e.target.files[0])                               
+                                onInput={(e) => {
+                                    if(e.target.files[0]) setFieldValue("file", e.target.files[0])
+                                    e.target.value = "";         
                                 }}
                             />
                             <ErrorMessage className='error' name="file" component="div"/>                  

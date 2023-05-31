@@ -58,7 +58,7 @@ const Slider = () => {
                         nextEl: '.swiper-next',
                       }}
                     modules={[Navigation, Thumbs, Autoplay, Pagination ]}
-                    // autoplay={{ delay: 5000 }}   
+                    autoplay={{ delay: 5000 }}   
                     thumbs={{ swiper: thumbsSwiper }} 
                 >
                     {slides.map(({_id, ...props})=>(
