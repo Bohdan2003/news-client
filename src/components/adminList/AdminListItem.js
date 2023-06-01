@@ -1,4 +1,4 @@
-import { useRef, useCallback, memo } from 'react';
+import { useRef, useCallback } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useEditSlideMutation, useDeleteSlideMutation } from '../../api/apiSlice';
 import * as yup from 'yup'
@@ -7,12 +7,6 @@ import { PreviewImage } from '../previewImage/PreviewImage';
 import { IMAGE_URL } from "../../keys"
 
 const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
-const MemoPreviewImage = memo(({...props}) => 
-    <PreviewImage 
-        SUPPORTED_FORMATS={SUPPORTED_FORMATS}
-        {...props} 
-    />
-);
 
 export const AdminListItem = (props) => {
     const { descr, _id, imgURL } = props.item;
@@ -56,11 +50,13 @@ export const AdminListItem = (props) => {
                { ({values, setFieldValue, resetForm}) => (
                     <Form className='admin-list__form'> 
                         <div className="admin-list__box">  
-                            <MemoPreviewImage 
-                                classNames="admin-list__img"
+                            <PreviewImage 
+                                nameClass="admin-list__img"
                                 file={values.file}
                                 defaultImg={IMAGE_URL + imgURL}
                                 selectingFile={selectingFile}
+                                setFieldValue={setFieldValue}
+                                SUPPORTED_FORMATS={SUPPORTED_FORMATS}
                             />                       
                             <input 
                                 ref={inputFileRef}
@@ -97,7 +93,6 @@ export const AdminListItem = (props) => {
                                     type="submit"
                                     className="admin-list__btn-submit"
                                     disabled={values.descr == descr && !values.file}
-                                    // disabled={values.descr == descr && (!values.file || values.file == "dd")}
                                 >
                                     Оновити
                                 </button>

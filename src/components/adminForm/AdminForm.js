@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { memo, useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import * as yup from 'yup'
 import { useCreateSlideMutation, useGetSLidesQuery } from '../../api/apiSlice';
 
@@ -8,17 +8,13 @@ import { PreviewImage } from '../previewImage/PreviewImage';
 import './adminForm.scss';
 
 const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
-const MemoPreviewImage = memo(({...props}) => 
-    <PreviewImage 
-        SUPPORTED_FORMATS={SUPPORTED_FORMATS}
-        {...props} 
-    />
-);
 
 export const AdminForm = () => {
 
     const [ createSlide ] = useCreateSlideMutation();
-    const { isFetching : isFetchingList, isError: isErrorList } = useGetSLidesQuery();
+    const { isFetching : isFetchingList, 
+            isError: isErrorList 
+          } = useGetSLidesQuery();
 
     const inputFileRef = useRef(null);
 
@@ -57,10 +53,12 @@ export const AdminForm = () => {
                { ({values, setFieldValue}) => (
                     <Form> 
                         <div className="admin-form__box">  
-                            <MemoPreviewImage 
-                                classNames="admin-form__img"
+                            <PreviewImage 
+                                nameClass="admin-form__img"
                                 file={values.file}
                                 selectingFile={selectingFile}
+                                setFieldValue={setFieldValue}
+                                SUPPORTED_FORMATS={SUPPORTED_FORMATS}
                             />
                             <input 
                                 ref={inputFileRef}

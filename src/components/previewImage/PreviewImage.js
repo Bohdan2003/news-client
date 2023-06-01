@@ -1,8 +1,8 @@
-import { useRef, useEffect } from "react";
+import { memo, useRef, useEffect } from "react";
 
 import img from "../../assets/imagenophoto.svg";
 
-export const PreviewImage = ({ SUPPORTED_FORMATS, file, selectingFile, classNames="", defaultImg = img }) => {
+export const PreviewImage = memo(({ SUPPORTED_FORMATS, file, selectingFile, nameClass="", setFieldValue, defaultImg = img }) => {
     const imgRef = useRef();
     
     useEffect(() => {
@@ -20,9 +20,29 @@ export const PreviewImage = ({ SUPPORTED_FORMATS, file, selectingFile, className
             imgRef.current.setAttribute('src', defaultImg);
         }
     }, [file])
+
+    const highlight = e => {
+        e.preventDefault()
+        e.target.classList.add(`${nameClass}--hover`)
+    }
+
+    const unhighlight = e => {
+        e.preventDefault()
+        e.target.classList.remove(`${nameClass}--hover`)
+    }
     
     return (
-        <div className={classNames} onClick={selectingFile}>
+        <div 
+            className={nameClass} 
+            onClick={selectingFile}
+            onDragEnter={highlight}
+            onDragOver={highlight}
+            onDragLeave={unhighlight}
+            onDrop={e => {
+                setFieldValue("file", e.dataTransfer.files[0])
+                unhighlight(e);
+            }}
+        >
             <img 
                 ref={imgRef} 
                 src={defaultImg}
@@ -30,4 +50,4 @@ export const PreviewImage = ({ SUPPORTED_FORMATS, file, selectingFile, className
             />
         </div>
     )
-}
+})

@@ -36,6 +36,9 @@
             object-fit: cover;          
         }
     }
+    &__img--hover::after{
+        opacity: 1;
+    }
     &__btn{
         cursor: pointer;
         width: 100%;
