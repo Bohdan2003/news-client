@@ -1,18 +1,7 @@
-import './loading.scss'
+import { ReactComponent as IconLoading } from "../../assets/loading.svg";
 
-const Loading = () => {
-    return (
-        <div className="gooey-wrapper">
-            <div className="gooey">
-                <span className="dot"></span>
-                <div className="dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    )
+import "./loading.scss";
+
+export const Loading = () => {
+    return <div className="loading"><IconLoading/></div>
 }
-
-export { Loading }

@@ -10,6 +10,7 @@ const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png"];
 
 export const AdminListItem = (props) => {
     const { descr, _id, imgURL } = props.item;
+    const { provided } = props;
     const [ editSlide ] = useEditSlideMutation();
     const [ deleteSlide ] = useDeleteSlideMutation();
 
@@ -20,7 +21,7 @@ export const AdminListItem = (props) => {
     }, [inputFileRef.current]);
 
     return (
-        <div className="admin-list__item">
+        <li className="admin-list__item" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
             <Formik
                 initialValues={{
                     file: null,
@@ -31,7 +32,7 @@ export const AdminListItem = (props) => {
                         .nullable()
                         .test(
                             "FILE_FORMAT",
-                            "Выбран файл неверного формата.",
+                            "Вибрано неправильний файл.",
                             (value) => !value || (value && SUPPORTED_FORMATS.includes(value?.type))
                         ),
                     descr: yup.string()
@@ -48,7 +49,7 @@ export const AdminListItem = (props) => {
                 }}
             >
                { ({values, setFieldValue, resetForm}) => (
-                    <Form className='admin-list__form'> 
+                    <Form className='admin-list__item-form'> 
                         <div className="admin-list__box">  
                             <PreviewImage 
                                 nameClass="admin-list__img"
@@ -80,19 +81,16 @@ export const AdminListItem = (props) => {
                                 name="descr" 
                             />
                             <ErrorMessage className="error" name="descr"  component="div" />
-                            <div className="admin-list__btns">
+                            <div className={`admin-list__btns ${values.descr == descr && !values.file ? 'admin-list__btns--hidden' : ''}`}>
                                  <input 
-                                    className={`admin-list__btn-clear ${values.descr == descr && !values.file ? 'admin-list__btn-clear--hidden' : null}`}
+                                    className="admin-list__btn-clear"
                                     type="button"
                                     value="Відмінити"
-                                    onClick={() => {
-                                        resetForm({file: null, descr: descr});          
-                                    }}
+                                    onClick={() => {resetForm()}}
                                 />
                                 <button 
                                     type="submit"
                                     className="admin-list__btn-submit"
-                                    disabled={values.descr == descr && !values.file}
                                 >
                                     Оновити
                                 </button>
@@ -107,6 +105,6 @@ export const AdminListItem = (props) => {
                 className="admin-list__btn-delet" 
                 onClick={() => {deleteSlide({_id, imgURL})}}
             ></button>
-        </div>
+        </li>
     )
 }

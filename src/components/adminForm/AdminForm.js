@@ -35,7 +35,7 @@ export const AdminForm = () => {
                         .required('Обов\'язкове поле')
                         .test(
                             "FILE_FORMAT",
-                            "Выбран файл неверного формата.",
+                            "Вибрано неправильний файл.",
                             (value) => !value || (value && SUPPORTED_FORMATS.includes(value?.type))
                         ),
                     descr: yup.string()

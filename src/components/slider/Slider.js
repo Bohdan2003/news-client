@@ -27,9 +27,9 @@ const MemoSwiperSlideContent = memo(({descr, imgURL, link = "#"}) => {
     )
 })
 
-const Slider = () => {
+export const Slider = () => {
     const {
-        data: slides = [],
+        data = [],
         isLoading,
         isError
     } = useGetSLidesQuery()
@@ -61,7 +61,7 @@ const Slider = () => {
                     autoplay={{ delay: 5000 }}   
                     thumbs={{ swiper: thumbsSwiper }} 
                 >
-                    {slides.map(({_id, ...props})=>(
+                    {data.map(({_id, ...props})=>(
                         <SwiperSlide className="slider__item" key={_id}>
                             <MemoSwiperSlideContent {...props}/>
                         </SwiperSlide>
@@ -76,10 +76,8 @@ const Slider = () => {
                 </div>  
             </div>
                 
-             <Subslider slides={slides} setThumbsSwiper={setThumbsSwiper}/>             
+             <Subslider slides={data} setThumbsSwiper={setThumbsSwiper}/>             
                       
         </section>
     )
-};
-
-export { Slider };
+}

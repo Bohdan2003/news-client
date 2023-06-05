@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+  import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { BACKEND_URL } from "../keys"
 
 export const apiSlice = createApi({
@@ -41,6 +41,14 @@ export const apiSlice = createApi({
         }),
         invalidatesTags: ['Slides']
       }),
+      changeTheOrderOfSlides: builder.mutation({
+        query: slides => ({
+          url: 'slider/change-order',
+          method: 'POST',
+          body: slides,
+        }),
+        invalidatesTags: ['Slides']
+      }),
       editSlide: builder.mutation({
         query: slide => ({
           url: `slider/edit/${slide.get('_id')}`,
@@ -70,6 +78,7 @@ export const {
   useGetNewsSectionQuery,
   useGetPromotionQuery,
   useCreateSlideMutation, 
+  useChangeTheOrderOfSlidesMutation,
   useEditSlideMutation,
   useDeleteSlideMutation 
 } = apiSlice
