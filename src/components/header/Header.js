@@ -1,9 +1,9 @@
 import {HeaderTop} from "./HeaderTop";
-import {HeaderBottom} from "./HeaderBottom";
+import { Navigation } from "./Navigation";
 
 export const Header = () => (
     <header className="header"> 
         <HeaderTop/>
-        <HeaderBottom/>
+        <Navigation/>
     </header>
 )

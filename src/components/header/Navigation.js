@@ -1,10 +1,10 @@
 import { Drag } from '../drag/Drag';
 
-import './headerBottom.scss';
+import './navigation.scss';
 
 const ListItem = ({link = "#", text, active = false}) => (
-    <li className="header-bottom__item">
-        <a className={`header-bottom__link ${active ? 'header-bottom__link--active' : ''}`} 
+    <li className="navigation__item">
+        <a className={`navigation__link ${active ? 'navigation__link--active' : ''}`} 
            href={link} 
         >
             {text}
@@ -12,13 +12,13 @@ const ListItem = ({link = "#", text, active = false}) => (
     </li>
 )
 
-export const HeaderBottom = () => {
+export const Navigation = () => {
     return (
         <Drag width={800}>
-            <div className="header-bottom">
+            <div className="navigation">
                 <div className="container">
-                    <div className="header-bottom__inner">
-                        <ul className="header-bottom__list">
+                    <nav className="navigation__inner">
+                        <ul className="navigation__list">
                             <ListItem text="війна" active/>
                             <ListItem text="політика" />
                             <ListItem text="економіка" />
@@ -26,8 +26,8 @@ export const HeaderBottom = () => {
                             <ListItem text="погляди" />
                             <ListItem text="світ" />
                         </ul>
-                        <a className="header-bottom__live" href="#">live</a>
-                    </div>
+                        <a className="navigation__live" href="#">live</a>
+                    </nav>
                 </div>
             </div>
         </Drag>       
